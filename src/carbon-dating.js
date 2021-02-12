@@ -4,6 +4,12 @@ const MODERN_ACTIVITY= 15;
 const HALF_LIFE_PERIOD= 5730;
 
 module.exports = function dateSample(sampleActivity) {
-  throw new CustomError('Not implemented');
-  // remove line with error and write your code here
+	const sampleNum = Number.parseFloat(sampleActivity);
+  if(typeof sampleActivit !== 'string' || isNaN(sampleNum ) || sampleNum <= 0 || sampleNum > MODERN_ACTIVITY) {
+  	return false;
+  }
+  const A0A = MODERN_ACTIVITY / sampleNum;
+  const k = Math.log(2) / HALF_LIFE_PERIOD;
+  const t = Math.log(A0A) / k;
+  return Math.ceil(t);
 };
