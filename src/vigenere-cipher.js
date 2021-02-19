@@ -1,19 +1,12 @@
 const CustomError = require("../extensions/custom-error");
 
 class VigenereCipheringMachine {
-  // encrypt() {
-  //   throw new CustomError('Not implemented');
-  // }    
-  // decrypt() {
-  //   throw new CustomError('Not implemented');
-  // }
-
   constructor(isDirect = true) {
     this.isDirect = isDirect;
   }
   encrypt(message, key) {
     if(message === undefined || key === undefined) {
-      throw new CustomError('Not implemented');
+      throw Error();
     }
     let alphabet = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
     let encryptResult = [];
@@ -44,14 +37,13 @@ class VigenereCipheringMachine {
   }    
   decrypt(encryptedMessage, key) {
     if(encryptedMessage === undefined || key === undefined) {
-      throw new CustomError('Not implemented');
+      throw Error();
     }
     let alphabet = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
     let encryptResult = [];
     let encryptResultIndex = 0;
     encryptedMessage = encryptedMessage.toUpperCase();
     key = key.toUpperCase();
-    //console.log(key+' + '+encryptedMessage);
     //code to lengthen key to message length
     let diffLength = encryptedMessage.length - key.length;
     for(let k = 0; k < diffLength; k++) {
